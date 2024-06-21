@@ -33,6 +33,6 @@ public class Vec3d extends Vec3 {
         float f1 = MathHelper.sin(-y * 0.017453292F - (float) Math.PI);
         float f2 = -MathHelper.cos(-x * 0.017453292F);
         float f3 = MathHelper.sin(-x * 0.017453292F);
-        return new Vec3d((double) (f1 * f2), (double) f3, (double) (f * f2));
+        return new Vec3d(f1 * f2, f3, f * f2);
     }
 }

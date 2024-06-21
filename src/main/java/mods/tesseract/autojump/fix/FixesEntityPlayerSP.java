@@ -10,6 +10,7 @@ import net.minecraft.util.Vec3;
 import net.tclproject.mysteriumlib.asm.annotations.Fix;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class FixesEntityPlayerSP {
@@ -45,7 +46,7 @@ public class FixesEntityPlayerSP {
                 double d0 = c.posX + c.motionX;
                 double d1 = c.posZ + c.motionZ;
                 Vec3d vec3d1 = new Vec3d(d0, c.boundingBox.minY, d1);
-                Vec3d vec3d2 = new Vec3d(c.motionX, 0.0D, c.motionZ);
+                Vec3d vec3d2 = new Vec3d(c.motionX, 0, c.motionZ);
                 float f = c.getAIMoveSpeed();
                 float f1 = (float) vec3d2.lengthSquared();
 
@@ -118,7 +119,7 @@ public class FixesEntityPlayerSP {
                                             break label86;
                                         }
 
-                                        int by2 = by + 1;
+                                        int by2 = by1 + i;
                                         Block b2 = c.worldObj.getBlock(bx1, by2, bz1);
                                         AxisAlignedBB axisalignedbb1;
 
@@ -129,16 +130,13 @@ public class FixesEntityPlayerSP {
                                                 return;
                                             }
                                         }
-
                                         if (i > 1) {
                                             by++;
                                             Block b3 = c.worldObj.getBlock(bx, by, bz);
-
                                             if (b3.getCollisionBoundingBoxFromPool(c.worldObj, bx, by, bz) != null) {
                                                 return;
                                             }
                                         }
-
                                         ++i;
                                     }
                                 }
@@ -148,8 +146,7 @@ public class FixesEntityPlayerSP {
                                 float f14 = (float) ((double) f11 - c.boundingBox.minY);
 
                                 if (f14 > 0.5F && f14 <= f7) {
-                                    p.autoJumpTime = 1;
-                                    System.out.println(114514);
+                                    System.out.println(new Random().nextInt(10));
                                 }
                             }
                         }
